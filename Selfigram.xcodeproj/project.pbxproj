@@ -13,6 +13,8 @@
 		073FF7611E9F1EF2009C5F24 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FF7601E9F1EF2009C5F24 /* ProfileViewController.swift */; };
 		075B229A1EB1890A00C39EDF /* SelfieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B22991EB1890A00C39EDF /* SelfieCell.swift */; };
 		076AB1641EC3F9A9004E27E7 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076AB1631EC3F9A9004E27E7 /* Activity.swift */; };
+		076BDC5C1ECA8FE700541097 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076BDC5B1ECA8FE700541097 /* ActivityViewController.swift */; };
+		076BDC5E1ECA902A00541097 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076BDC5D1ECA902A00541097 /* ActivityCell.swift */; };
 		07BCDA0D1E9C771F009E29C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BCDA0C1E9C771F009E29C8 /* AppDelegate.swift */; };
 		07BCDA0F1E9C771F009E29C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BCDA0E1E9C771F009E29C8 /* ViewController.swift */; };
 		07BCDA121E9C771F009E29C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BCDA101E9C771F009E29C8 /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 		073FF7601E9F1EF2009C5F24 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		075B22991EB1890A00C39EDF /* SelfieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelfieCell.swift; path = ../SelfieCell.swift; sourceTree = "<group>"; };
 		076AB1631EC3F9A9004E27E7 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		076BDC5B1ECA8FE700541097 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		076BDC5D1ECA902A00541097 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		07BCDA091E9C771F009E29C8 /* Selfigram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selfigram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07BCDA0C1E9C771F009E29C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07BCDA0E1E9C771F009E29C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				07BCDA0C1E9C771F009E29C8 /* AppDelegate.swift */,
 				07BCDA0E1E9C771F009E29C8 /* ViewController.swift */,
 				07BCDA101E9C771F009E29C8 /* Main.storyboard */,
+				076BDC5B1ECA8FE700541097 /* ActivityViewController.swift */,
+				076BDC5D1ECA902A00541097 /* ActivityCell.swift */,
 				076AB1631EC3F9A9004E27E7 /* Activity.swift */,
 				073FF7601E9F1EF2009C5F24 /* ProfileViewController.swift */,
 				07BCDA131E9C771F009E29C8 /* Assets.xcassets */,
@@ -466,8 +472,10 @@
 			files = (
 				0711DB8E1EA85969001E6B36 /* User.swift in Sources */,
 				07204DB21EAEE78400301B4D /* FeedTableViewController.swift in Sources */,
+				076BDC5E1ECA902A00541097 /* ActivityCell.swift in Sources */,
 				075B229A1EB1890A00C39EDF /* SelfieCell.swift in Sources */,
 				073FF7611E9F1EF2009C5F24 /* ProfileViewController.swift in Sources */,
+				076BDC5C1ECA8FE700541097 /* ActivityViewController.swift in Sources */,
 				07BCDA0F1E9C771F009E29C8 /* ViewController.swift in Sources */,
 				07BCDA0D1E9C771F009E29C8 /* AppDelegate.swift in Sources */,
 				076AB1641EC3F9A9004E27E7 /* Activity.swift in Sources */,
@@ -623,7 +631,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6520F65E594D51228DB4B60 /* Pods-Selfigram.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				INFOPLIST_FILE = Selfigram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kerr.aiden.Selfigram;
@@ -636,7 +644,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E1C52272A3743C0E7208593B /* Pods-Selfigram.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				INFOPLIST_FILE = Selfigram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kerr.aiden.Selfigram;

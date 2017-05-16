@@ -22,18 +22,8 @@ class FeedTableViewController: UITableViewController, UIImagePickerControllerDel
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        if let query = Post.query() {
-            query.order(byDescending: "createdAt")
-            query.includeKey("user")
-            
-            query.findObjectsInBackground(block: {(posts, error) -> Void in
-                if let posts = posts as? [Post] {
-                    self.posts = posts
-                    self.tableView.reloadData()
-                }
-            })
-        }
+        navigationItem.titleView = UIImageView(image: UIImage(named: "Selfiegram-logo"))
+        getPosts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -130,6 +120,34 @@ class FeedTableViewController: UITableViewController, UIImagePickerControllerDel
         tableView.reloadData()
     }
 
+    @IBAction func refreshPulled(_ sender: UIRefreshControl) {
+        getPosts()
+    }
+    
+    func getPosts() {
+        if let query = Post.query() {
+            query.order(byDescending: "createdAt")
+            query.includeKey("user")
+            
+            query.findObjectsInBackground(block: {(posts, error) -> Void in
+                self.refreshControl?.endRefreshing()
+                if let posts = posts as? [Post] {
+                    self.posts = posts
+                    self.tableView.reloadData()
+                }
+            })
+        }
+    }
+    @IBAction func doubleTappedSelfie(_ sender: UITapGestureRecognizer) {
+        // Get location of tap (x,y)
+        let tapLocation = sender.location(in: tableView)
+        
+        // get indexPath for the location of the tap
+        if let indexPathAtTapLocation = tableView.indexPathForRow(at: tapLocation) {
+            let cell = tableView.cellForRow(at: indexPathAtTapLocation) as! SelfieCell
+            cell.tapAnimation()
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

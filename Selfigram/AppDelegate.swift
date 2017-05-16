@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Initialize Parse
         let configuration = ParseClientConfiguration { clientConfiguration in
-            clientConfiguration.applicationId = "aidenselfiegram"
-            clientConfiguration.server = "https://aiden-parse-server.herokuapp.com/parse"
+            clientConfiguration.applicationId = "5CDeHX2xNhW11QZXr9AvtBbEQY0lft4jpUuMFt9g"
+            clientConfiguration.server = "https://parse-server-ios-main.herokuapp.com/parse"
         }
         Post.registerSubclass()
         Activity.registerSubclass()
