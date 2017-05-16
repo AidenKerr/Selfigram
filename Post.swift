@@ -8,15 +8,25 @@
 
 import Foundation
 import UIKit
+import Parse
 
-class Post {
-    let imageURL: URL
-    let user: User
-    let comment: String
+class Post: PFObject, PFSubclassing {
+    @NSManaged var image: PFFile
+    @NSManaged var user: PFUser
+    @NSManaged var comment: String
     
-    init(imageURL: URL, user: User, comment: String) {
-        self.imageURL = imageURL
+    var likes: PFRelation<PFObject>! {
+        return relation(forKey: "likes")
+    }
+    
+    convenience init(image: PFFile, user: PFUser, comment: String) {
+        self.init()
+        self.image = image
         self.user = user
         self.comment = comment
+    }
+    
+    static func parseClassName() -> String {
+        return "Post"
     }
 }

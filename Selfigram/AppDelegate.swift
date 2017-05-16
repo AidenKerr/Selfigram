@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Initialize Parse
+        let configuration = ParseClientConfiguration { clientConfiguration in
+            clientConfiguration.applicationId = "aidenselfiegram"
+            clientConfiguration.server = "https://aiden-parse-server.herokuapp.com/parse"
+        }
+        Post.registerSubclass()
+        Activity.registerSubclass()
+        Parse.initialize(with: configuration)
+        
+        let user = PFUser()
+        let username = "Aiden"
+        let password = "Kerr"
+        user.username = username
+        user.password = password
+        user.signUpInBackground(block: { (success, error) -> Void in
+            if success {
+                print("sign in success")
+            } else {
+                
+                PFUser.logInWithUsername(inBackground: username, password: password, block: { (user, error) -> Void in
+                    if let user = user {
+                        print("ye boii, you logged in \(user)")
+                    }
+                })
+            }
+        })
+        
         return true
     }
 

@@ -151,19 +151,34 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3e-BS-ded">
+                                            <rect key="frame" x="381" y="266" width="23" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="DCd-go-Ect"/>
+                                                <constraint firstAttribute="width" constant="23" id="bhk-hu-u6C"/>
+                                            </constraints>
+                                            <state key="normal" image="hearts-off"/>
+                                            <state key="selected" image="hearts-on"/>
+                                            <connections>
+                                                <action selector="likeButtonClicked:" destination="hIe-WZ-r4P" eventType="touchUpInside" id="KkP-zT-OOj"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="JkL-F8-jx9" firstAttribute="top" secondItem="Gl4-hW-n0B" secondAttribute="bottom" constant="8" id="Ud3-sH-CtF"/>
+                                        <constraint firstItem="h3e-BS-ded" firstAttribute="top" secondItem="Kqf-AU-pme" secondAttribute="bottom" constant="8" id="Wjw-nx-l0h"/>
                                         <constraint firstItem="Gl4-hW-n0B" firstAttribute="top" secondItem="Kqf-AU-pme" secondAttribute="bottom" constant="8" id="XaM-mt-Lfu"/>
                                         <constraint firstItem="Kqf-AU-pme" firstAttribute="leading" secondItem="twN-uM-WuR" secondAttribute="leadingMargin" id="YTm-EJ-Q5g"/>
                                         <constraint firstItem="JkL-F8-jx9" firstAttribute="leading" secondItem="twN-uM-WuR" secondAttribute="leadingMargin" id="noL-jf-E3Y"/>
                                         <constraint firstItem="Kqf-AU-pme" firstAttribute="top" secondItem="twN-uM-WuR" secondAttribute="topMargin" id="oS0-Fe-aiS"/>
                                         <constraint firstItem="Gl4-hW-n0B" firstAttribute="leading" secondItem="twN-uM-WuR" secondAttribute="leadingMargin" id="rFg-ke-5u7"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Kqf-AU-pme" secondAttribute="trailing" id="xhf-mN-rNI"/>
+                                        <constraint firstAttribute="trailing" secondItem="h3e-BS-ded" secondAttribute="trailing" constant="10" id="zWh-sh-pa0"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentLabel" destination="JkL-F8-jx9" id="kaS-AV-hlC"/>
+                                    <outlet property="likeButton" destination="h3e-BS-ded" id="hwC-iM-T2L"/>
                                     <outlet property="selfieImageView" destination="Kqf-AU-pme" id="cgX-ol-DRI"/>
                                     <outlet property="usernameLabel" destination="Gl4-hW-n0B" id="ipJ-IX-IcL"/>
                                 </connections>
@@ -248,6 +263,8 @@
         <image name="Activities" width="25" height="25"/>
         <image name="NewsFeed" width="25" height="25"/>
         <image name="Profile" width="25" height="25"/>
+        <image name="hearts-off" width="42" height="37"/>
+        <image name="hearts-on" width="42" height="37"/>
         <image name="placeholder" width="256" height="256"/>
     </resources>
 </document>

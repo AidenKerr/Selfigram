@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -18,6 +19,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameLabel.text = "AidenK"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let user = PFUser.current() {
+            usernameLabel.text = user.username
+            
+            if let imageFile = user["avatarImage"] as? PFFile {
+                imageFile.getDataInBackground(block: { (data, error) -> Void in
+                    if let imageData = data {
+                        self.profileImageView.image = UIImage(data: imageData)
+                    }
+                })
+            }
+        }
     }
 
     @IBAction func cameraButtonPressed(_ sender: Any) {
@@ -55,8 +72,19 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         //    We are getting an image from the UIImagePickerControllerOriginalImage key in that dictionary
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
-            //2. To our imageView, we set the image property to be the image the user has chosen
-            profileImageView.image = image
+            // Setting data compression to 90%
+            if let imageData = UIImageJPEGRepresentation(image, 0.9),
+                let imageFile = PFFile(data: imageData),
+                let user = PFUser.current() {
+                
+                user["avatarImage"] = imageFile
+                user.saveInBackground(block: { (success, error) -> Void in
+                    if success {
+                        let image = UIImage(data: imageData)
+                        self.profileImageView.image = image
+                    }
+                })
+            }
             
         }
         
